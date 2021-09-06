@@ -1,8 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, send_file, render_template
 
 application = Flask(__name__)
 
+# API GET request behavior
 @application.route('/')
+def get_image():
+    return send_file('static/blankPixel.png')
+
+# blank page displaying the image
+@application.route('/blank')
 def index():
     return render_template('index.html')
 
